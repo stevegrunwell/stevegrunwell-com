@@ -1,12 +1,22 @@
 # Directories to keep out of version control.
-plugins
+plugins/advanced-post-excerpt
+plugins/akismet
+plugins/amp
+plugins/crayon-syntax-highlighter
+plugins/dovedi
+plugins/ewww-image-optimizer
+plugins/glue-for-yoast-seo-amp
+plugins/google-analytics-for-wordpress
+plugins/mcavoy
+plugins/revision-strike
+plugins/safe-redirect-manager
+plugins/schemify
+plugins/wordpress-seo
+plugins/wp-comment-humility
 themes/lovecraft
 upgrade
 uploads
 vendor
-
-# Files to include from previously-excluded directories.
-!plugins/index.php
 
 # System files
 .DS_Store
