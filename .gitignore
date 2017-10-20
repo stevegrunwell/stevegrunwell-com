@@ -1,0 +1,13 @@
+# Directories to keep out of version control.
+plugins
+themes
+upgrade
+uploads
+vendor
+
+# Files to include from previously-excluded directories.
+!plugins/index.php
+!themes/index.php
+
+# System files
+.DS_Store
