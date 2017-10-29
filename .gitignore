@@ -1,5 +1,6 @@
 # Directories to keep out of version control.
 plugins/advanced-post-excerpt
+plugins/antispambot
 plugins/akismet
 plugins/amp
 plugins/crayon-syntax-highlighter
