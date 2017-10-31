@@ -257,3 +257,27 @@ function get_the_talk_date( $post_id = 0, $inc_name = false ) {
 
 	return $date_range;
 }
+
+/**
+ * When querying a tag archive, include the grunwell_talk custom post type.
+ *
+ * @param WP_Query $query
+ */
+function include_talks_in_taxonomy_queries( $query ) {
+	if ( ! $query->is_main_query() ) {
+		return;
+	} elseif ( ! $query->is_tag() ) {
+		return;
+	}
+
+	// Append "grunwell_talk" to the current list of post types.
+	$post_types = array_filter( (array) $query->get( 'post_type' ) );
+
+	if ( empty( $post_types ) ) {
+		$post_types[] = 'post';
+	}
+	$post_types[] = 'grunwell_talk';
+
+	$query->set( 'post_type', $post_types );
+}
+add_filter( 'pre_get_posts', __NAMESPACE__ . '\include_talks_in_taxonomy_queries' );
