@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "57de2d48c6c0f160b72487b0fbd00f41",
+    "content-hash": "ea076f34442d26c90c958bb7e4e2d7e4",
     "packages": [
         {
             "name": "composer/installers",
@@ -382,6 +382,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/schemify/"
+        },
+        {
+            "name": "wpackagist-plugin/so-clean-up-wp-seo",
+            "version": "3.4.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/so-clean-up-wp-seo/",
+                "reference": "tags/3.4.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/so-clean-up-wp-seo.3.4.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/so-clean-up-wp-seo/"
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",

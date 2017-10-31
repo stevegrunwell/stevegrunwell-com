@@ -12,6 +12,7 @@ plugins/mcavoy
 plugins/revision-strike
 plugins/safe-redirect-manager
 plugins/schemify
+plugins/so-clean-up-wp-seo
 plugins/wordpress-seo
 plugins/wp-comment-humility
 themes/lovecraft

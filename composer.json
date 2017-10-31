@@ -23,6 +23,7 @@
         "wpackagist-plugin/revision-strike": "*",
         "wpackagist-plugin/safe-redirect-manager": "*",
         "wpackagist-plugin/schemify": "*",
+        "wpackagist-plugin/so-clean-up-wp-seo": "*",
         "wpackagist-plugin/wordpress-seo": "*",
         "wpackagist-plugin/wp-comment-humility": "*",
         "wpackagist-theme/lovecraft": "^1.17"
