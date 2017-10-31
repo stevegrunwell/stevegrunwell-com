@@ -20,5 +20,8 @@ upgrade
 uploads
 vendor
 
+# Log files
+debug.log
+
 # System files
 .DS_Store
