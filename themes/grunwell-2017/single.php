@@ -18,7 +18,7 @@
 
 						    <div class="post-meta">
 
-								<p class="post-date"><a href="<?php the_permalink(); ?>"><?php the_time(get_option('date_format')); ?></a></p>
+								<p class="post-date"><?php the_time(get_option('date_format')); ?></p>
 								<?php if (has_category()) : ?>
 									<p class="post-categories"><span><?php _e('In','lovecraft'); ?> </span><?php the_category(', '); ?></p>
 								<?php endif; ?>
