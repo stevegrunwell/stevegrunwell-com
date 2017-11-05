@@ -10,3 +10,12 @@
  * Text Domain: grunwell-2017
  * Template:    lovecraft
  */
+
+.affiliate-disclosure {
+	margin-bottom: 1.5rem;
+	padding: 30px;
+	font-size: .85em;
+	font-style: italic;
+	background: #fafafa;
+	border: 1px solid #eee;
+}
