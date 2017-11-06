@@ -1,10 +1,10 @@
 <div id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
 
-	<?php if ( has_post_thumbnail() ) : ?>
+	<?php if ( $banner_id = get_post_meta( get_the_ID(), 'grunwell_banner_id', true ) ) : ?>
 
 		<a class="post-image" title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
 
-			<?php the_post_thumbnail('post-image'); ?>
+			<?php echo wp_get_attachment_image( $banner_id, 'post-image' ); ?>
 
 		</a> <!-- /featured-media -->
 
