@@ -1,0 +1,25 @@
+/**
+ * Styles for the admin area.
+ */
+
+/* Banner images. */
+.grunwell-image-input {
+	margin-bottom: 1em;
+}
+
+.grunwell-image-input img {
+	max-width: 100%;
+	height: auto;
+}
+
+.grunwell-image-input .image-div, .grunwell-image-input .image-remove {
+	display: none;
+}
+
+.grunwell-image-input.has-image .image-div {
+	display: block;
+}
+
+.grunwell-image-input.has-image .image-remove {
+	display: inline;
+}
