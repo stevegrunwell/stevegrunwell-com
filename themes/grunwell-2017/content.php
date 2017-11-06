@@ -20,16 +20,20 @@
 
 			<?php endif; ?>
 
-		    <?php if ( is_sticky() ) : ?>
+			<?php if ( is_sticky() ) : ?>
 
-		    	<a href="<?php the_permalink(); ?>" title="<?php _e('Sticky post','lovecraft') ?>" class="sticky-post">
-			    	<div class="genericon genericon-star"></div>
-			    </a>
+				<a href="<?php the_permalink(); ?>" title="<?php _e('Sticky post','lovecraft') ?>" class="sticky-post">
+					<div class="genericon genericon-star"></div>
+				</a>
 
-		    <?php endif; ?>
+			<?php endif; ?>
 
 		    <div class="post-meta">
-				<p class="post-date"><?php the_time(get_option('date_format')); ?></p>
+				<?php if ( 'grunwell_talk' === get_post_type() ) : ?>
+					<?php get_template_part( 'template-parts/talk', 'date' ); ?>
+				<?php else : ?>
+					<p class="post-date"><?php the_time(get_option('date_format')); ?></p>
+				<?php endif; ?>
 				<?php if (has_category()) : ?>
 					<p class="post-categories"><span><?php _e('In','lovecraft'); ?> </span><?php the_category(', '); ?></p>
 				<?php endif; ?>
