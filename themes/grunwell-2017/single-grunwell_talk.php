@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+use SteveGrunwellCom\Talks as Talks;
+
+get_header(); ?>
 
 <div class="wrapper section">
 
@@ -34,18 +37,29 @@
 								<?php the_content(); ?>
 
 								<?php
-							    	$args = array(
-										'before'           => '<div class="clear"></div><p class="page-links"><span class="title">' . __( 'Pages:','lovecraft' ) . '</span>',
-										'after'            => '</p>',
-										'link_before'      => '<span>',
-										'link_after'       => '</span>',
-										'separator'        => '',
-										'pagelink'         => '%',
-										'echo'             => 1
-									);
-
-						    		wp_link_pages($args);
+									$event = [
+										'name'     => get_post_meta( get_the_ID(), 'event_name', true ),
+										'url'      => get_post_meta( get_the_ID(), 'event_url', true ),
+										'date'     => get_post_meta( get_the_ID(), 'event_date', true ),
+										'date_end' => get_post_meta( get_the_ID(), 'event_date_end', true ),
+										'venue'    => get_post_meta( get_the_ID(), 'venue', true ),
+									];
 								?>
+
+								<?php if ( $event['name'] && $event['date'] ) : ?>
+									<div class="event-details">
+										<h2><?php esc_html_e( 'Event details', 'grunwell-2017' ); ?></h2>
+										<p>
+											<?php if ( $event['url'] ) : ?>
+												<strong><a href="<?php echo esc_url( $event['url'] ); ?>" rel="external"><?php echo esc_html( $event['name'] ); ?></a></strong>
+											<?php else : ?>
+												<strong><?php echo esc_html( $event['name'] ); ?></strong>
+											<?php endif; ?>
+											<?php echo nl2br( PHP_EOL . esc_html( $event['venue'] ) ); ?>
+											<span class="event-dates"><?php echo esc_html( Talks\get_the_talk_date() ); ?></span>
+										</p>
+									</div>
+								<?php endif; ?>
 
 							</div>
 

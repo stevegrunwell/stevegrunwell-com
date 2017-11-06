@@ -11,13 +11,26 @@
  * Template:    lovecraft
  */
 
-.affiliate-disclosure {
-	margin-bottom: 1.5rem;
+.affiliate-disclosure, .event-details {
 	padding: 30px;
-	font-size: .85em;
-	font-style: italic;
 	background: #fafafa;
 	border: 1px solid #eee;
+}
+
+.affiliate-disclosure {
+	margin-bottom: 1.5rem;
+	font-size: .85em;
+	font-style: italic;
+}
+
+.event-details h2 {
+	margin-top: 0;
+	font-size: 1.25em;
+}
+
+.event-details .event-dates {
+	display: block;
+	font-weight: bold;
 }
 
 /* Fixes bug in Lovecraft's comment form floats. */
