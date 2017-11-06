@@ -108,16 +108,13 @@
 
 		</div> <!-- /navigation -->
 
-		<?php if ( is_singular() && has_post_thumbnail() ) : ?>
+		<?php if ( is_singular() && ( $banner_id = get_post_meta( get_the_ID(), 'grunwell_banner_id', true ) ) ) : ?>
 
-			<?php
-				$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image-cover' );
-				$post_image = $thumb['0'];
-			?>
+			<?php $thumb = wp_get_attachment_image_src( $banner_id, 'post-image-cover' ); ?>
 
-			<div class="header-image bg-image" style="background-image: url(<?php echo esc_url( $post_image ); ?>)">
+			<div class="header-image bg-image" style="background-image: url(<?php echo esc_url( $thumb['0'] ); ?>)">
 
-				<?php the_post_thumbnail('post-image'); ?>
+				<?php echo wp_get_attachment_image( $banner_id, 'post-image' ); ?>
 
 			</div>
 
