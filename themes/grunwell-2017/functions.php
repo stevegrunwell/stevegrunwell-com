@@ -22,3 +22,11 @@ function enqueue_parent_theme_styles() {
 	);
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_parent_theme_styles' );
+
+/**
+ * Remove post formats, as they won't be used.
+ */
+function remove_post_formats() {
+	remove_theme_support( 'post-formats' );
+}
+add_action( 'after_setup_theme', __NAMESPACE__ . '\remove_post_formats', 11 );
