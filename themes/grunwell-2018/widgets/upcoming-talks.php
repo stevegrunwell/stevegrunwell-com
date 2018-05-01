@@ -2,19 +2,21 @@
 
 use SteveGrunwellCom\Talks as Talks;
 
-class grunwell_upcoming_talks extends WP_Widget {
+class Grunwell_Upcoming_Talks extends WP_Widget {
 
 	function __construct() {
-		$widget_ops = array( 'classname' => 'widget_grunwell_upcoming_talks', 'description' => __('Displays upcoming talks.', 'grunwell-2018') );
-		parent::__construct( 'widget_grunwell_upcoming_talks', __('Upcoming Talks', 'grunwell-2018'), $widget_ops );
+		parent::__construct( 'widget_grunwell_upcoming_talks', __('Upcoming Talks', 'grunwell-2018'), [
+			'classname'   => 'Widget_Grunwell_Upcoming_Talks',
+			'description' => __('Displays upcoming talks.', 'grunwell-2018' ),
+		] );
 	}
 
 	function widget( $args, $instance ) {
 		$upcoming_talks = new WP_Query( [
-			'post_type'           => 'grunwell_talk',
-			'posts_per_page'      => $instance['number_of_posts'],
-			'post_status'         => 'publish',
-			'meta_query'          => [
+			'post_type'      => 'grunwell_talk',
+			'posts_per_page' => $instance['number_of_posts'],
+			'post_status'    => 'publish',
+			'meta_query'     => [
 				[
 					'key'     => 'event_date',
 					'value'   => date('Y-m-d'),
@@ -22,8 +24,8 @@ class grunwell_upcoming_talks extends WP_Widget {
 					'type'    => 'date',
 				],
 			],
-			'orderby' => 'meta_value',
-			'order' => 'asc',
+			'orderby'        => 'meta_value',
+			'order'          => 'asc',
 		] );
 
 		echo $args['before_widget'];
@@ -84,29 +86,25 @@ class grunwell_upcoming_talks extends WP_Widget {
 	}
 
 	function form($instance) {
+		$instance = wp_parse_args( $instance, [
+			'widget_title'    => '',
+			'number_of_posts' => 5,
+		] );
+?>
 
-		// Set defaults
-		if(!isset($instance["widget_title"])) { $instance["widget_title"] = ''; }
-		if(!isset($instance["number_of_posts"])) { $instance["number_of_posts"] = '5'; }
+	<p>
+		<label for="<?php echo $this->get_field_id( 'widget_title' ); ?>"><?php esc_html_e( 'Title', 'grunwell-2018' ); ?>:
+		<input id="<?php echo $this->get_field_id( 'widget_title' ); ?>" name="<?php echo $this->get_field_name( 'widget_title' ); ?>" type="text" class="widefat" value="<?php echo esc_attr( $instance['widget_title'] ); ?>" /></label>
+	</p>
 
-		// Get the options into variables, escaping html characters on the way
-		$widget_title = esc_attr($instance['widget_title']);
-		$number_of_posts = esc_attr($instance['number_of_posts']);
-		?>
+	<p>
+		<label for="<?php echo $this->get_field_id('number_of_posts'); ?>"><?php esc_html_e( 'Number of posts to display', 'grunwell-2018' ); ?>:
+		<input id="<?php echo $this->get_field_id( 'number_of_posts' ); ?>" name="<?php echo $this->get_field_name( 'number_of_posts' ); ?>" type="text" class="widefat" value="<?php echo esc_attr( $instance['number_of_posts'] ); ?>" /></label>
+		<small><?php esc_html_e('(Defaults to 5 if empty)', 'grunwell-2018' ); ?></small>
+	</p>
 
-		<p>
-			<label for="<?php echo $this->get_field_id('widget_title'); ?>"><?php  _e('Title', 'lovecraft'); ?>:
-			<input id="<?php echo $this->get_field_id('widget_title'); ?>" name="<?php echo $this->get_field_name('widget_title'); ?>" type="text" class="widefat" value="<?php echo esc_attr($widget_title); ?>" /></label>
-		</p>
-
-		<p>
-			<label for="<?php echo $this->get_field_id('number_of_posts'); ?>"><?php _e('Number of posts to display', 'lovecraft'); ?>:
-			<input id="<?php echo $this->get_field_id('number_of_posts'); ?>" name="<?php echo $this->get_field_name('number_of_posts'); ?>" type="text" class="widefat" value="<?php echo esc_attr($number_of_posts); ?>" /></label>
-			<small>(<?php _e('Defaults to 5 if empty','lovecraft'); ?>)</small>
-		</p>
-
-		<?php
+<?php
 	}
 }
 
-register_widget('grunwell_upcoming_talks');
+register_widget( 'Grunwell_Upcoming_Talks' );
