@@ -37,3 +37,12 @@
 .comment-form-url {
 	clear: both;
 }
+
+/* Updates within posts. */
+.post-content .update {
+	padding: 30px;
+	font-size: 0.95em;
+	font-style: italic;
+	background: #FEEFB3;
+	border: 1px solid #eee;
+}
