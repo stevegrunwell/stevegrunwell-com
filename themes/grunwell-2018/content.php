@@ -49,7 +49,7 @@
 
 				<?php the_excerpt(); ?>
 
-				<p><a href="<?php the_permalink(); ?>" class="more-link"><?php esc_html_e( 'Continue reading&rarr;', 'grunwell-2017' ); ?></a></p>
+				<p><a href="<?php the_permalink(); ?>" class="more-link"><?php esc_html_e( 'Continue reading&rarr;', 'grunwell-2018' ); ?></a></p>
 			</div>
 
 			<div class="clear"></div>

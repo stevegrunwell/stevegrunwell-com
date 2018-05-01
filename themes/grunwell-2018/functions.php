@@ -3,7 +3,7 @@
  * Theme functions.
  */
 
-namespace Grunwell2017;
+namespace Grunwell2018;
 
 define('LOVECRAFT_DIR', dirname( __DIR__ ) . '/lovecraft' );
 

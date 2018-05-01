@@ -16,6 +16,7 @@ plugins/so-clean-up-wp-seo
 plugins/wordpress-seo
 plugins/wp-comment-humility
 themes/lovecraft
+themes/twenty*
 upgrade
 uploads
 vendor

@@ -48,7 +48,7 @@ get_header(); ?>
 
 								<?php if ( $event['name'] && $event['date'] ) : ?>
 									<div class="event-details">
-										<h2><?php esc_html_e( 'Event details', 'grunwell-2017' ); ?></h2>
+										<h2><?php esc_html_e( 'Event details', 'grunwell-2018' ); ?></h2>
 										<p>
 											<?php if ( $event['url'] ) : ?>
 												<strong><a href="<?php echo esc_url( $event['url'] ); ?>" rel="external"><?php echo esc_html( $event['name'] ); ?></a></strong>

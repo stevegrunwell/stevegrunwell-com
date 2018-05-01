@@ -5,8 +5,8 @@ use SteveGrunwellCom\Talks as Talks;
 class grunwell_upcoming_talks extends WP_Widget {
 
 	function __construct() {
-		$widget_ops = array( 'classname' => 'widget_grunwell_upcoming_talks', 'description' => __('Displays upcoming talks.', 'grunwell-2017') );
-		parent::__construct( 'widget_grunwell_upcoming_talks', __('Upcoming Talks', 'grunwell-2017'), $widget_ops );
+		$widget_ops = array( 'classname' => 'widget_grunwell_upcoming_talks', 'description' => __('Displays upcoming talks.', 'grunwell-2018') );
+		parent::__construct( 'widget_grunwell_upcoming_talks', __('Upcoming Talks', 'grunwell-2018'), $widget_ops );
 	}
 
 	function widget( $args, $instance ) {
@@ -22,6 +22,8 @@ class grunwell_upcoming_talks extends WP_Widget {
 					'type'    => 'date',
 				],
 			],
+			'orderby' => 'meta_value',
+			'order' => 'asc',
 		] );
 
 		echo $args['before_widget'];
@@ -55,15 +57,15 @@ class grunwell_upcoming_talks extends WP_Widget {
 
 		<div class="textwidget">
 			<p><?php echo wp_kses_post( sprintf(
-				__( 'I don\'t currently have any upcoming talks scheduled, but please <a href="%s">get in touch</a> if you\'d like to set something up!', 'grunwell-2017' ),
+				__( 'I don\'t currently have any upcoming talks scheduled, but please <a href="%s">get in touch</a> if you\'d like to set something up!', 'grunwell-2018' ),
 				site_url( '/contact' )
 			) ); ?></p>
 		</div>
 
 	<?php endif; ?>
 
-	<p>
-		<a href="<?php echo get_post_type_archive_link( 'grunwell_talk' ); ?>" class="more-link"><?php esc_html_e( 'See all talks', 'grunwell-2017' ); ?></a>
+	<p class="post-content">
+		<a href="<?php echo get_post_type_archive_link( 'grunwell_talk' ); ?>" class="more-link"><?php esc_html_e( 'See all talks', 'grunwell-2018' ); ?></a>
 	</p>
 <?php
 		echo $args['after_widget'];
