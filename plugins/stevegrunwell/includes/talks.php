@@ -73,6 +73,7 @@ function event_details_meta_cb( $post ) {
 	$venue      = get_post_meta( $post->ID, 'venue', true );
 	$start_date = get_post_meta( $post->ID, 'event_date', true );
 	$end_date   = get_post_meta( $post->ID, 'event_date_end', true );
+	$canceled   = (bool) get_post_meta( $post->ID, 'event_canceled', true );
 ?>
 
 	<p>
@@ -100,6 +101,13 @@ function event_details_meta_cb( $post ) {
 		</p>
 	</fieldset>
 
+	<p>
+		<label for="grunwell-event-canceled">
+			<input name="grunwell_event[event_canceled]" id="grunwell-event-canceled" type="checkbox" <?php checked( $canceled, true ); ?>>
+			<?php esc_html_e( 'Has this event been canceled?', 'grunwell-2018' ); ?>
+		</label>
+	</p>
+
 <?php
 	wp_nonce_field( 'grunwell-event-details', '_grunwell_event_details' );
 }
@@ -123,11 +131,12 @@ function save_event_details( $post_id ) {
 	}
 
 	$args = wp_parse_args( $_POST['grunwell_event'], array(
-		'event_name'     => null,
-		'event_url'      => null,
-		'event_date'     => null,
-		'event_date_end' => null,
-		'venue'          => null,
+		'event_name'      => null,
+		'event_url'       => null,
+		'event_date'      => null,
+		'event_date_end'  => null,
+		'venue'           => null,
+		'event_canceled'  => false,
 	) );
 
 	// Handle date validation.
@@ -185,7 +194,7 @@ function manage_custom_column( $column, $post_id ) {
 			} else {
 				echo esc_html( _x( '–', 'indicates empty column', 'stevegrunwell' ) );
 			}
-			echo the_talk_date();
+			echo '<br>' . esc_html( get_the_talk_date() );
 			break;
 
 	}

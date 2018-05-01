@@ -23,6 +23,11 @@ class Grunwell_Upcoming_Talks extends WP_Widget {
 					'compare' => '>',
 					'type'    => 'date',
 				],
+				[
+					'key'     => 'event_canceled',
+					'value'   => false,
+					'type'    => 'boolean',
+				],
 			],
 			'orderby'        => 'meta_value',
 			'order'          => 'asc',
