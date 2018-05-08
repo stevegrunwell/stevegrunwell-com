@@ -11,10 +11,14 @@
  * Template:    lovecraft
  */
 
-.affiliate-disclosure, .event-details {
+.affiliate-disclosure, .event-details, .post-content aside {
 	padding: 30px;
 	background: #fafafa;
 	border: 1px solid #eee;
+}
+
+.affiliate-disclosure, .post-content aside {
+	margin-bottom: 1.5rem;
 }
 
 .affiliate-disclosure {
