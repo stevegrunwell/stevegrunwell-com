@@ -1,25 +1,18 @@
 # Directories to keep out of version control.
-plugins/advanced-post-excerpt
-plugins/antispambot
-plugins/akismet
-plugins/amp
-plugins/crayon-syntax-highlighter
-plugins/dovedi
-plugins/ewww-image-optimizer
-plugins/glue-for-yoast-seo-amp
-plugins/google-analytics-for-wordpress
-plugins/mcavoy
-plugins/revision-strike
-plugins/safe-redirect-manager
-plugins/schemify
-plugins/so-clean-up-wp-seo
-plugins/wordpress-seo
-plugins/wp-comment-humility
-themes/lovecraft
-themes/twenty*
+mu-plugins
+plugins
+themes
 upgrade
 uploads
 vendor
+
+# Explicitly include code specific to this project.
+!plugins/stevegrunwell
+!themes/grunwell-2018
+
+# Files that are created as symlinks in appropriate environments.
+advanced-cache.php
+object-cache.php
 
 # Log files
 debug.log

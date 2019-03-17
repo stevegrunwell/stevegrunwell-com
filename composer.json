@@ -36,11 +36,22 @@
             "themes/{$name}/": ["type:wordpress-theme"]
         }
     },
+    "scripts": {
+        "enable-cache": [
+        "mkdir -p $PWD/mu-plugins",
+            "ln -s $PWD/plugins/batcache/advanced-cache.php $PWD/advanced-cache.php",
+            "ln -s $PWD/plugins/batcache/batcache.php $PWD/mu-plugins/batcache.php",
+            "ln -s $PWD/plugins/wp-redis/object-cache.php $PWD/object-cache.php"
+        ]
+    },
+    "scripts-descriptions": {
+        "enable-cache": "Symlink WP Redis and Batcache into wp-content."
+    },
     "config": {
-    	"preferred-install": "dist",
-    	"platform": {
-    		"php": "7.2"
-    	},
-    	"sort-packages": true
+        "preferred-install": "dist",
+        "platform": {
+            "php": "7.2"
+        },
+        "sort-packages": true
     }
 }
