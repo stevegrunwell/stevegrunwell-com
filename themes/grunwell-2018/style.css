@@ -50,3 +50,13 @@
 	background: #FEEFB3;
 	border: 1px solid #eee;
 }
+
+/**
+ * Akismet privacy disclosure.
+ */
+.akismet_comment_form_privacy_notice {
+	width: 629px;
+	max-width: 85%;
+	margin: -40px auto 60px;
+	font-size: smaller;
+}
