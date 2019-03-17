@@ -12,7 +12,7 @@
 
 				<h2 class="comments-title">
 
-					<?php echo count($wp_query->comments_by_type[comment]) . ' ';
+					<?php echo count($wp_query->comments_by_type['comment']) . ' ';
 					echo _n( 'Comment' , 'Comments' , count($wp_query->comments_by_type['comment']), 'lovecraft' ); ?>
 
 				</h2>
@@ -44,7 +44,7 @@
 						<h3 class="pingbacks-title">
 
 							<?php echo count($wp_query->comments_by_type['pings']) . ' ';
-							echo _n( 'Pingback', 'Pingbacks', count($wp_query->comments_by_type[pings]), 'lovecraft' ); ?>
+							echo _n( 'Pingback', 'Pingbacks', count($wp_query->comments_by_type['pings']), 'lovecraft' ); ?>
 
 						</h3>
 
