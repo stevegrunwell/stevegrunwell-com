@@ -26,7 +26,7 @@
         "wpackagist-plugin/so-clean-up-wp-seo": "*",
         "wpackagist-plugin/wordpress-seo": "*",
         "wpackagist-plugin/wp-comment-humility": "*",
-        "wpackagist-theme/lovecraft": "^1.17"
+        "wpackagist-theme/lovecraft": "^1.28"
     },
     "extra": {
         "installer-paths": {
