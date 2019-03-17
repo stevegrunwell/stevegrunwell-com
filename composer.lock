@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c32ce8bc29659c68067a87e76f9f5ff4",
+    "content-hash": "d5a5e39d0fa6be640136af9eb6a3941b",
     "packages": [
         {
             "name": "composer/installers",
@@ -197,6 +197,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/antispambot/"
+        },
+        {
+            "name": "wpackagist-plugin/batcache",
+            "version": "1.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/batcache/",
+                "reference": "tags/1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/batcache.1.4.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/batcache/"
         },
         {
             "name": "wpackagist-plugin/crayon-syntax-highlighter",
@@ -415,6 +433,24 @@
             "homepage": "https://wordpress.org/plugins/wp-comment-humility/"
         },
         {
+            "name": "wpackagist-plugin/wp-redis",
+            "version": "0.7.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-redis/",
+                "reference": "tags/0.7.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-redis.0.7.1.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-redis/"
+        },
+        {
             "name": "wpackagist-theme/lovecraft",
             "version": "1.28",
             "source": {
@@ -440,5 +476,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "platform-overrides": {
+        "php": "7.2"
+    }
 }

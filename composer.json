@@ -11,9 +11,10 @@
     ],
     "require": {
         "wpackagist-plugin/advanced-post-excerpt": "*",
-        "wpackagist-plugin/antispambot": "*",
         "wpackagist-plugin/akismet": "*",
         "wpackagist-plugin/amp": "*",
+        "wpackagist-plugin/antispambot": "*",
+        "wpackagist-plugin/batcache": "^1.4",
         "wpackagist-plugin/crayon-syntax-highlighter": "*",
         "wpackagist-plugin/dovedi": "*",
         "wpackagist-plugin/ewww-image-optimizer": "*",
@@ -26,6 +27,7 @@
         "wpackagist-plugin/so-clean-up-wp-seo": "*",
         "wpackagist-plugin/wordpress-seo": "*",
         "wpackagist-plugin/wp-comment-humility": "*",
+        "wpackagist-plugin/wp-redis": "^0.7.1",
         "wpackagist-theme/lovecraft": "^1.28"
     },
     "extra": {
@@ -33,5 +35,12 @@
             "plugins/{$name}/": ["type:wordpress-plugin"],
             "themes/{$name}/": ["type:wordpress-theme"]
         }
+    },
+    "config": {
+    	"preferred-install": "dist",
+    	"platform": {
+    		"php": "7.2"
+    	},
+    	"sort-packages": true
     }
 }
