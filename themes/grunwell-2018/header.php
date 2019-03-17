@@ -77,20 +77,22 @@
 
 					<?php if ( has_nav_menu( 'primary' ) ) {
 
-						wp_nav_menu( array(
+						$menu_args = array(
+							'container' 		=> '',
+							'items_wrap' 		=> '%3$s',
+							'theme_location' 	=> 'primary',
+						);
 
+						wp_nav_menu( $menu_args );
+
+					} else {
+
+						$list_pages_args = array(
 							'container' => '',
-							'items_wrap' => '%3$s',
-							'theme_location' => 'primary'
+							'title_li' 	=> '',
+						);
 
-						) ); } else {
-
-						wp_list_pages( array(
-
-							'container' => '',
-							'title_li' => ''
-
-						));
+						wp_list_pages( $list_pages_args );
 
 					} ?>
 
@@ -102,11 +104,23 @@
 
 				</div>
 
+				<ul class="main-menu">
+
+					<?php
+					if ( has_nav_menu( 'primary' ) ) {
+						wp_nav_menu( $menu_args );
+					} else {
+						wp_list_pages( $list_pages_args );
+					}
+					?>
+
+				</ul>
+
 				<div class="clear"></div>
 
-			</div> <!-- /section-inner -->
+			</div><!-- .section-inner -->
 
-		</div> <!-- /navigation -->
+		</div><!-- .navigation -->
 
 		<?php if ( is_singular() && ( $banner_id = get_post_meta( get_the_ID(), 'grunwell_banner_id', true ) ) ) : ?>
 
