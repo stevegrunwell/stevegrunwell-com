@@ -280,13 +280,28 @@ function include_talks_in_taxonomy_queries( $query ) {
 	}
 
 	// Append "grunwell_talk" to the current list of post types.
-	$post_types = array_filter( (array) $query->get( 'post_type' ) );
-
-	if ( empty( $post_types ) ) {
-		$post_types[] = 'post';
-	}
+	$post_types   = array_filter( (array) $query->get( 'post_type' ) );
 	$post_types[] = 'grunwell_talk';
 
 	$query->set( 'post_type', $post_types );
 }
 add_filter( 'pre_get_posts', __NAMESPACE__ . '\include_talks_in_taxonomy_queries' );
+
+/**
+ * Order the grunwell_talk post-type archive by the talk date.
+ *
+ * @param WP_Query $query
+ */
+function order_talks_by_date( $query ) {
+	if ( ! $query->is_main_query() ) {
+		return;
+	} elseif ( ! $query->is_post_type_archive( 'grunwell_talk' ) ) {
+		return;
+	}
+
+	$query->set('meta_key', 'event_date');
+	$query->set('orderby', 'meta_value');
+	$query->set('order', 'DESC');
+	$query->set('meta_type', 'DATE');
+}
+add_filter( 'pre_get_posts', __NAMESPACE__ . '\order_talks_by_date' );
