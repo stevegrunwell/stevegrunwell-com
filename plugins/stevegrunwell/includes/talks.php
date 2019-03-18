@@ -281,6 +281,10 @@ function include_talks_in_taxonomy_queries( $query ) {
 
 	// Append "grunwell_talk" to the current list of post types.
 	$post_types   = array_filter( (array) $query->get( 'post_type' ) );
+
+	if ( empty( $post_types ) ) {
+		$post_types[] = 'post';
+	}
 	$post_types[] = 'grunwell_talk';
 
 	$query->set( 'post_type', $post_types );
