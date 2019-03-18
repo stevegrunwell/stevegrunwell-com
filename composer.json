@@ -21,6 +21,7 @@
         "wpackagist-plugin/ewww-image-optimizer": "*",
         "wpackagist-plugin/glue-for-yoast-seo-amp": "*",
         "wpackagist-plugin/google-analytics-for-wordpress": "*",
+        "wpackagist-plugin/jetpack": "7.1.1.1",
         "wpackagist-plugin/mcavoy": "*",
         "wpackagist-plugin/revision-strike": "*",
         "wpackagist-plugin/safe-redirect-manager": "*",
