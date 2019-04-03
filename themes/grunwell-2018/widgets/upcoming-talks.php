@@ -20,7 +20,7 @@ class Grunwell_Upcoming_Talks extends WP_Widget {
 				[
 					'key'     => 'event_date',
 					'value'   => date('Y-m-d'),
-					'compare' => '>',
+					'compare' => '>=',
 					'type'    => 'date',
 				],
 				[
