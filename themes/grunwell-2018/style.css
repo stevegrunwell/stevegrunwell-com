@@ -42,6 +42,11 @@
 	clear: both;
 }
 
+/* Remove margin-top from headings within asides. */
+.post-content aside > *:first-child {
+	margin-top: 0;
+}
+
 /* Updates within posts. */
 .post-content .update {
 	padding: 30px;
