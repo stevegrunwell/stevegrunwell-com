@@ -150,9 +150,12 @@ function save_event_details( $post_id ) {
 
 	// Event URL.
 	update_post_meta( $post_id, 'event_url', filter_var( $args['event_url'], FILTER_SANITIZE_URL ) );
-	unset( $args['event_url'] );
+
+	// Venue
+	update_post_meta( $post_id, 'venue', wp_kses_post( $args['venue'] ) );
 
 	// Everything else will get sanitize_text_field().
+	unset( $args['event_url'], $args['venue'] );
 	foreach ( $args as $key => $val ) {
 		update_post_meta( $post_id, $key, sanitize_text_field( $val ) );
 	}
