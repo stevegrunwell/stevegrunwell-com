@@ -65,3 +65,8 @@
 	margin: -40px auto 60px;
 	font-size: smaller;
 }
+
+/* Extra margin for secondary .page-title elements. */
+.page-title.secondary-page-title {
+	margin-top: 60px;
+}

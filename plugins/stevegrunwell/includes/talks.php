@@ -8,6 +8,7 @@
 namespace SteveGrunwellCom\Talks;
 
 use SteveGrunwellCom\Utils as Utils;
+use WP_Query;
 
 /**
  * Register the "Talks" custom post type.
@@ -312,3 +313,41 @@ function order_talks_by_date( $query ) {
 	$query->set('meta_type', 'DATE');
 }
 add_filter( 'pre_get_posts', __NAMESPACE__ . '\order_talks_by_date' );
+
+/**
+ * Are there any upcoming talks?
+ *
+ * @return bool
+ */
+function has_upcoming_talks() {
+	$now   = date( 'Y-m-d' );
+	$query = new WP_Query( [
+		'post_type'              => 'grunwell_talk',
+		'post_status'            => 'publish',
+		'posts_per_page'         => 1,
+		'no_found_rows'          => true,
+		'update_post_term_cache' => false,
+		'return'                 => 'ids',
+		'meta_query'             => [
+			[
+				'key'     => 'event_date_end',
+				'value'   => $now,
+				'compare' => '>',
+				'type'    => 'DATE',
+			],
+		],
+	] );
+
+	return $query->have_posts();
+}
+
+/**
+ * Based on the talk date, is this talk in the future?
+ *
+ * @return bool
+ */
+function is_upcoming_talk( int $post_id ) {
+	$end_date = get_post_meta( $post_id, 'event_date_end', true );
+
+	return $end_date && $end_date > date( 'Y-m-d' );
+}
