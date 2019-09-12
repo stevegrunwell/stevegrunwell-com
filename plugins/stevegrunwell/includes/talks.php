@@ -14,9 +14,9 @@ use WP_Query;
  * Register the "Talks" custom post type.
  */
 function register_talks_post_type() {
-	register_post_type( 'grunwell_talk', array(
+	register_post_type( 'grunwell_talk', [
 		'label'                => __( 'Talks', 'stevegrunwell' ),
-		'labels'               => array(
+		'labels'               => [
 			'singular_name'         => __( 'Talk', 'stevegrunwell' ),
 			'add_new_item'          => __( 'Add New Talk', 'stevegrunwell' ),
 			'edit_item'             => __( 'Edit Talk', 'stevegrunwell' ),
@@ -29,22 +29,22 @@ function register_talks_post_type() {
 			'archives'              => __( 'Talk Archives', 'stevegrunwell' ),
 			'insert_into_item'      => __( 'Insert into talk', 'stevegrunwell' ),
 			'uploaded_to_this_item' => __( 'Uploaded to this talk', 'stevegrunwell' ),
-		),
+		],
 		'description'          => __( 'Speeches, presentations, and conference talks.', 'stevegrunwell' ),
 		'public'               => true,
 		'menu_icon'            => 'dashicons-megaphone',
 		'hierarchical'         => false,
-		'supports'             => array( 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ),
+		'supports'             => [ 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ],
 		'register_meta_box_cb' => __NAMESPACE__ . '\register_meta_box_cb',
-		'taxonomies'           => array( 'post_tag' ),
+		'taxonomies'           => [ 'post_tag' ],
 		'has_archive'          => true,
-		'rewrite'              => array(
+		'rewrite'              => [
 			'slug'       => 'speaking',
 			'with_front' => false,
-		),
+		],
 		'show_in_rest'         => true,
 		'rest_base'            => 'speaking',
-	) );
+	] );
 }
 add_action( 'init', __NAMESPACE__ . '\register_talks_post_type' );
 
