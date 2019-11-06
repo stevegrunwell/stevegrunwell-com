@@ -349,5 +349,5 @@ function has_upcoming_talks() {
 function is_upcoming_talk( int $post_id ) {
 	$end_date = get_post_meta( $post_id, 'event_date_end', true );
 
-	return $end_date && $end_date > date( 'Y-m-d' );
+	return $end_date && $end_date >= date( 'Y-m-d' );
 }
