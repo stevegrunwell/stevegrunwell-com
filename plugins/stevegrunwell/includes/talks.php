@@ -332,7 +332,7 @@ function has_upcoming_talks() {
 			[
 				'key'     => 'event_date_end',
 				'value'   => $now,
-				'compare' => '>',
+				'compare' => '>=',
 				'type'    => 'DATE',
 			],
 		],
