@@ -41,3 +41,36 @@ function remove_post_formats() {
 	remove_theme_support( 'post-formats' );
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\remove_post_formats', 11 );
+
+/**
+ * Inject taxonomy descriptions at the top of sidebars.
+ *
+ * @param string|int The sidebar index/name.
+ */
+function inject_taxonomy_description( $sidebar ) {
+	if ( 'sidebar' !== $sidebar ) {
+		return;
+	}
+
+	$description = '';
+
+	if ( is_category() || is_tag() || is_tax() ) {
+		$description = term_description();
+	}
+
+	if ( ! empty( $description ) ) {
+		the_widget( 'WP_Widget_Text',
+			[
+				'title' => single_term_title( '', false ),
+				'text'  => $description,
+			],
+			[
+				'before_title' => '<h3 class="widget-title">',
+				'after_title' => '</h3>',
+				'before_widget' => '<div class="widget widget_text"><div class="widget-content">',
+				'after_widget' => '</div><div class="clear"></div></div>',
+			]
+		);
+	}
+}
+add_action( 'dynamic_sidebar_before', __NAMESPACE__ . '\inject_taxonomy_description' );
