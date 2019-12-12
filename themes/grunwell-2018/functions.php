@@ -31,6 +31,14 @@ function enqueue_parent_theme_styles() {
 		get_stylesheet_directory_uri() . '/style.css',
 		[ 'lovecraft_style' ]
 	);
+
+	wp_enqueue_style(
+		'grunwell_print',
+		get_stylesheet_directory_uri() . '/print.css',
+		[ 'grunwell_styles' ],
+		null,
+		'print'
+	);
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_parent_theme_styles', 100 );
 

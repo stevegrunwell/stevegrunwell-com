@@ -1,0 +1,66 @@
+/**
+ * Print styles for SteveGrunwell.com.
+ */
+
+/*
+ * Hide unnecessary things and adjust spacing.
+ */
+.header-wrapper,
+.navigation,
+.archive-navigation,
+.header-image,
+.post-meta p + p::before,
+.post-tags a:before,
+.post-navigation,
+.respond-container,
+.section.footer,
+.section.credits {
+	display: none !important;
+}
+
+.wrapper.section,
+.post-inner {
+	padding: 0;
+}
+
+.section-inner,
+.post-inner {
+	width: auto;
+	max-width: 100% !important;
+}
+
+.post {
+	border: none;
+}
+
+.content {
+	margin-top: 0;
+}
+
+/*
+ * Simplify some of the content display.
+ */
+.post-date:before {
+	content: 'Published ';
+}
+
+.post-tags:before {
+	content: 'Tagged: ';
+	font-family: Lato, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+/*
+ * Display link URLs.
+ */
+.post-content a {
+	color: inherit;
+	text-decoration: underline;
+}
+.post-content a:after {
+	content: ' <' attr(href) '>';
+	display: inline-block;
+	padding: 0 .2em;
+	font-size: smaller;
+	text-decoration: none;
+}
