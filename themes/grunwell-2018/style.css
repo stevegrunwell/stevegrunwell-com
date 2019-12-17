@@ -56,6 +56,15 @@
 	border: 1px solid #eee;
 }
 
+/* Don't put so much space around images in .post-content. */
+.post-content .alignnone,
+.post-content .aligncenter,
+.post-content .alignwide,
+.post-content .alignfull {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
 /**
  * Akismet privacy disclosure.
  */
