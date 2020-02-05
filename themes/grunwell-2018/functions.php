@@ -82,3 +82,18 @@ function inject_taxonomy_description( $sidebar ) {
 	}
 }
 add_action( 'dynamic_sidebar_before', __NAMESPACE__ . '\inject_taxonomy_description' );
+
+/**
+ * Inject banner images into the RSS feed.
+ *
+ * @param string $content The feed post content.
+ *
+ * @return string The (possibly) modified $content.
+ */
+function inject_banner_into_rss_content( $content ) {
+	$banner_id = get_post_meta( get_the_ID(), 'grunwell_banner_id', true );
+
+	return wp_get_attachment_image( $banner_id, 'post-image' ) . PHP_EOL . $content;
+}
+add_filter( 'the_excerpt_rss', __NAMESPACE__ . '\inject_banner_into_rss_content', 999 );
+add_filter( 'the_content_feed', __NAMESPACE__ . '\inject_banner_into_rss_content', 999 );
