@@ -7,7 +7,7 @@ namespace Grunwell2018;
 
 define('LOVECRAFT_DIR', dirname( __DIR__ ) . '/lovecraft' );
 
-require_once LOVECRAFT_DIR . '/widgets/recent-posts.php';
+require_once LOVECRAFT_DIR . '/inc/widgets/recent-posts.php';
 require_once __DIR__ . '/widgets/recent-posts.php';
 require_once __DIR__ . '/widgets/upcoming-talks.php';
 
