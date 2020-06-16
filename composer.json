@@ -14,14 +14,14 @@
         "wpackagist-plugin/akismet": "*",
         "wpackagist-plugin/amp": "*",
         "wpackagist-plugin/antispambot": "*",
-        "wpackagist-plugin/batcache": "^1.4",
-        "wpackagist-plugin/classic-editor": "^1.4",
+        "wpackagist-plugin/batcache": "*",
+        "wpackagist-plugin/classic-editor": "*",
         "wpackagist-plugin/crayon-syntax-highlighter": "*",
         "wpackagist-plugin/dovedi": "*",
         "wpackagist-plugin/ewww-image-optimizer": "*",
         "wpackagist-plugin/glue-for-yoast-seo-amp": "*",
         "wpackagist-plugin/google-analytics-for-wordpress": "*",
-        "wpackagist-plugin/jetpack": "7.1.1.1",
+        "wpackagist-plugin/jetpack": "*",
         "wpackagist-plugin/mcavoy": "*",
         "wpackagist-plugin/revision-strike": "*",
         "wpackagist-plugin/safe-redirect-manager": "*",
@@ -29,8 +29,8 @@
         "wpackagist-plugin/so-clean-up-wp-seo": "*",
         "wpackagist-plugin/wordpress-seo": "*",
         "wpackagist-plugin/wp-comment-humility": "*",
-        "wpackagist-plugin/wp-redis": "^0.7.1",
-        "wpackagist-theme/lovecraft": "^1.28"
+        "wpackagist-plugin/wp-redis": "*",
+        "wpackagist-theme/lovecraft": "*"
     },
     "extra": {
         "installer-paths": {
@@ -40,7 +40,7 @@
     },
     "scripts": {
         "enable-cache": [
-        "mkdir -p $PWD/mu-plugins",
+            "mkdir -p $PWD/mu-plugins",
             "ln -s $PWD/plugins/batcache/advanced-cache.php $PWD/advanced-cache.php",
             "ln -s $PWD/plugins/batcache/batcache.php $PWD/mu-plugins/batcache.php",
             "ln -s $PWD/plugins/wp-redis/object-cache.php $PWD/object-cache.php"
@@ -52,7 +52,7 @@
     "config": {
         "preferred-install": "dist",
         "platform": {
-            "php": "7.2"
+            "php": "7.4"
         },
         "sort-packages": true
     }
