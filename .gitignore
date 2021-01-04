@@ -2,13 +2,14 @@
 mu-plugins
 plugins
 themes
+updraft
 upgrade
 uploads
 vendor
 
 # Explicitly include code specific to this project.
-!plugins/stevegrunwell
-!themes/grunwell-2018
+!plugins/stevegrunwell/*
+!themes/grunwell-2018/*
 
 # Files that are created as symlinks in appropriate environments.
 advanced-cache.php

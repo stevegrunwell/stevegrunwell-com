@@ -8,6 +8,7 @@ namespace Grunwell2018;
 define('LOVECRAFT_DIR', dirname( __DIR__ ) . '/lovecraft' );
 
 require_once LOVECRAFT_DIR . '/inc/widgets/recent-posts.php';
+require_once __DIR__ . '/inc/overrides.php';
 require_once __DIR__ . '/widgets/recent-posts.php';
 require_once __DIR__ . '/widgets/upcoming-talks.php';
 
@@ -52,6 +53,21 @@ function remove_post_formats() {
 	remove_theme_support( 'post-formats' );
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\remove_post_formats', 11 );
+
+/**
+ * Inject event details after a talk's post content.
+ */
+add_filter( 'the_content', function ( $content ) {
+	if ( ! is_singular( 'grunwell_talk' ) ) {
+		return $content;
+	}
+
+	ob_start();
+	get_template_part( 'template-parts/talk-details' );
+	$details = ob_get_clean();
+
+	return $content . $details;
+} );
 
 /**
  * Inject taxonomy descriptions at the top of sidebars.

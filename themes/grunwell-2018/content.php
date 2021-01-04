@@ -1,61 +1,64 @@
-<div id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
+<div id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?>>
+
+	<?php
+	$post_format = get_post_format() ? get_post_format() : 'standard';
+	$post_type = get_post_type();
+	?>
 
 	<?php if ( $banner_id = get_post_meta( get_the_ID(), 'grunwell_banner_id', true ) ) : ?>
 
-		<a class="post-image" title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-
-			<?php echo wp_get_attachment_image( $banner_id, 'post-image' ); ?>
-
-		</a> <!-- /featured-media -->
+		<figure class="post-image">
+			<a href="<?php the_permalink(); ?>">
+				<?php echo wp_get_attachment_image( $banner_id, 'post-image' ); ?>
+			</a> <!-- .featured-media -->
+		</figure><!-- .post-image -->
 
 	<?php endif; ?>
 
 	<div class="post-inner">
 
-		<div class="post-header">
+		<?php if ( $post_format !== 'aside' ) : ?>
 
-			<?php if ( get_the_title() ) : ?>
+			<div class="post-header">
 
-			    <h2 class="post-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+				<?php if ( get_the_title() ) : ?>
 
-			<?php endif; ?>
+					<h2 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-			<?php if ( is_sticky() ) : ?>
+					<?php
+				endif;
 
-				<a href="<?php the_permalink(); ?>" title="<?php _e('Sticky post','lovecraft') ?>" class="sticky-post">
-					<div class="genericon genericon-star"></div>
-				</a>
+				if ( is_sticky() ) : ?>
 
-			<?php endif; ?>
+					<a href="<?php the_permalink(); ?>" class="sticky-post">
+						<div class="genericon genericon-star"></div>
+						<span class="screen-reader-text"><?php _e( 'Sticky post', 'lovecraft' ) ?></span>
+					</a>
 
-		    <div class="post-meta">
-				<?php if ( 'grunwell_talk' === get_post_type() ) : ?>
-					<?php get_template_part( 'template-parts/talk', 'date' ); ?>
-				<?php else : ?>
-					<p class="post-date"><?php the_time(get_option('date_format')); ?></p>
-				<?php endif; ?>
-				<?php if (has_category()) : ?>
-					<p class="post-categories"><span><?php _e('In','lovecraft'); ?> </span><?php the_category(', '); ?></p>
-				<?php endif; ?>
-				<?php edit_post_link('Edit', '<p>', '</p>'); ?>
+					<?php
+				endif;
 
-		    </div>
+				lovecraft_post_meta();
 
-		</div> <!-- /post-header -->
+				?>
 
-		<?php if ( get_the_excerpt() ) : ?>
-
-			<div class="post-content">
-
-				<?php the_excerpt(); ?>
-
-				<p><a href="<?php the_permalink(); ?>" class="more-link"><?php esc_html_e( 'Continue reading&rarr;', 'grunwell-2018' ); ?></a></p>
-			</div>
-
-			<div class="clear"></div>
+			</div><!-- .post-header -->
 
 		<?php endif; ?>
 
-	</div> <!-- /post-inner -->
+		<?php if ( get_the_content() ) : ?>
 
-</div> <!-- /post -->
+			<div class="post-content entry-content">
+				<?php the_excerpt(); ?>
+
+				<p><a href="<?php the_permalink(); ?>" class="more-link faux-button"><?php esc_html_e( 'Continue reading&rarr;', 'grunwell-2018' ); ?></a></p>
+			</div>
+
+			<?php
+		endif;
+
+		?>
+
+	</div><!-- .post-inner -->
+
+</div><!-- .post -->

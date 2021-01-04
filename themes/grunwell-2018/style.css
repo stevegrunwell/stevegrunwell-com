@@ -75,7 +75,24 @@
 	font-size: smaller;
 }
 
-/* Extra margin for secondary .page-title elements. */
-.page-title.secondary-page-title {
+/* Archive headers. */
+.archive-header {
+	background-color: rgba(0,0,0,.6);
+}
+
+/* Extra margin for secondary .archive-header elements. */
+.secondary-archive-header {
 	margin-top: 60px;
+	background-color: #222;
+}
+
+.secondary-archive-header + .post {
+	border-top: none;
+}
+
+/**
+ * Upcoming talks widget.
+ */
+.lovecraft-widget-list + .post-content {
+	margin-top: 1.5rem;
 }
