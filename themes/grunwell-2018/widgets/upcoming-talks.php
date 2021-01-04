@@ -47,8 +47,8 @@ class Grunwell_Upcoming_Talks extends WP_Widget {
 		<ul class="lovecraft-widget-list">
 			<?php while( $upcoming_talks->have_posts() ) : $upcoming_talks->the_post(); ?>
 
-				<li>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+				<li class="group">
+					<a href="<?php the_permalink(); ?>">
 						<div class="post-icon">
 							<?php the_post_thumbnail( 'thumbnail' ); ?>
 						</div>
@@ -74,7 +74,7 @@ class Grunwell_Upcoming_Talks extends WP_Widget {
 	<?php endif; ?>
 
 	<p class="post-content">
-		<a href="<?php echo get_post_type_archive_link( 'grunwell_talk' ); ?>" class="more-link"><?php esc_html_e( 'See all talks', 'grunwell-2018' ); ?></a>
+		<a href="<?php echo get_post_type_archive_link( 'grunwell_talk' ); ?>" class="more-link faux-button"><?php esc_html_e( 'See all talks', 'grunwell-2018' ); ?></a>
 	</p>
 <?php
 		echo $args['after_widget'];

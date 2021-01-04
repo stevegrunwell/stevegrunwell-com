@@ -1,46 +1,38 @@
-<?php if ( is_active_sidebar('footer-one') || is_active_sidebar('footer-two') || is_active_sidebar('footer-three') ) : ?>
+		</main><!-- #site-content -->
 
-	<div class="footer section big-padding bg-white">
+		<?php if ( is_active_sidebar( 'footer-one' ) || is_active_sidebar( 'footer-two' ) || is_active_sidebar( 'footer-three' ) ) : ?>
 
-		<div class="section-inner">
+			<footer class="footer section big-padding bg-white">
+				<div class="section-inner group">
 
-			<div class="widgets">
+					<?php if ( is_active_sidebar( 'footer-one' ) ) : ?>
+						<div class="widgets"><?php dynamic_sidebar( 'footer-one' ); ?></div>
+					<?php endif; ?>
 
-				<?php dynamic_sidebar('footer-one'); ?>
+					<?php if ( is_active_sidebar( 'footer-two' ) ) : ?>
+						<div class="widgets"><?php dynamic_sidebar( 'footer-two' ); ?></div>
+					<?php endif; ?>
 
-			</div>
+					<?php if ( is_active_sidebar( 'footer-three' ) ) : ?>
+						<div class="widgets"><?php dynamic_sidebar( 'footer-three' ); ?></div>
+					<?php endif; ?>
 
-			<div class="widgets">
+				</div><!-- .section-inner -->
+			</footer><!-- .footer.section -->
 
-				<?php dynamic_sidebar('footer-two'); ?>
+		<?php endif; ?>
 
-			</div>
+		<div class="credits section bg-dark">
 
-			<div class="widgets">
+			<div class="credits-inner section-inner">
 
-				<?php dynamic_sidebar('footer-three'); ?>
+				<p>Be excellent to each other.</p>
 
-			</div>
+			</div><!-- .section-inner -->
 
-			<div class="clear"></div>
+		</div><!-- .credits.section -->
 
-		</div> <!-- /section-inner -->
+		<?php wp_footer(); ?>
 
-	</div> <!-- /footer.section -->
-
-<?php endif; ?>
-
-<div class="credits section bg-dark">
-
-	<div class="credits-inner section-inner">
-
-		<p>Be excellent to each other.</p>
-
-	</div> <!-- /section-inner -->
-
-</div> <!-- /credits.section -->
-
-<?php wp_footer(); ?>
-
-</body>
+	</body>
 </html>
